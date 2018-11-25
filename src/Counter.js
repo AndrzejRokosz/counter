@@ -20,6 +20,9 @@ class Counter extends React.Component {
     decByFiveHandler = () => {
         this.setState({ number: this.state.number - 5 })
     }
+    resetHandler=()=>{
+        this.setState({number: this.props.startValue})
+    }
 
     render() {
         return (
@@ -44,6 +47,11 @@ class Counter extends React.Component {
                     onClick={this.decByFiveHandler}
                 >
                     Minus 5
+                </button>
+                <button
+                    onClick={this.resetHandler}
+                >
+                    Reset
                 </button>
             </div>
         )
