@@ -13,6 +13,14 @@ class Counter extends React.Component {
         this.setState({ number: this.state.number - 1 })
     }
 
+    incByFiveHandler = () => {
+        this.setState({ number: this.state.number + 5 })
+    }
+
+    decByFiveHandler = () => {
+        this.setState({ number: this.state.number - 5 })
+    }
+
     render() {
         return (
             <div>
@@ -26,6 +34,16 @@ class Counter extends React.Component {
                     onClick={this.decHandler}
                 >
                     Minus 1
+                </button>
+                <button
+                    onClick={this.incByFiveHandler}
+                >
+                    Plus 5
+                </button>
+                <button
+                    onClick={this.decByFiveHandler}
+                >
+                    Minus 5
                 </button>
             </div>
         )
