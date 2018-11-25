@@ -1,28 +1,32 @@
 import React from 'react'
 
-class Counter extends React.Component{
-state={
-    value:this.props.startValue
-}
+class Counter extends React.Component {
+    state = {
+        number: this.props.startValue
+    }
 
-inc
+    incHandler = () => {
+        this.setState({ number: this.state.number + 1 })
+    }
 
-    render(){
-        return(
+    decHandler = () => {
+        this.setState({ number: this.state.number - 1 })
+    }
+
+    render() {
+        return (
             <div>
-                <div>{this.state.value}</div>
+                <h1>{this.state.number}</h1>
                 <button
-                onClick={()=>alert('plus')}
+                    onClick={this.incHandler}
                 >
-                Plus
+                    Plus 1
                 </button>
                 <button
-                onClick={()=>alert('minus')}
+                    onClick={this.decHandler}
                 >
-                Minus
-                
+                    Minus 1
                 </button>
-
             </div>
         )
     }

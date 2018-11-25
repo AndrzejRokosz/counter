@@ -5,7 +5,9 @@ class App extends Component {
   render() {
     return (
       <Counter
-      startValue={0}
+
+        startValue={0}
+
       />
     )
   }
