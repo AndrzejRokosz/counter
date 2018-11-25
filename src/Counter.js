@@ -1,5 +1,23 @@
 import React from 'react'
 
+import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
+import Divider from 'material-ui/Divider'
+import { Card, CardText } from 'material-ui/Card'
+
+const style = {
+    button: {
+        margin: "3px auto",
+    },
+    divider: {
+        margin: "5px",
+    },
+    cardText: {
+        textAlign: "center",
+        fontSize: "30px"
+    }
+}
+
 class Counter extends React.Component {
     state = {
         number: this.props.startValue
@@ -25,56 +43,81 @@ class Counter extends React.Component {
         this.setState({ number: this.props.startValue })
     }
 
-    saveHandler=()=>{
-        window.localStorage.setItem('savedNumber',JSON.stringify(this.state.number))
+    saveHandler = () => {
+        window.localStorage.setItem('savedNumber', JSON.stringify(this.state.number))
     }
-    loadHandler=()=>{ 
-        
-        this.setState({number: JSON.parse(window.localStorage.getItem('savedNumber'))})
+    loadHandler = () => {
+        this.setState({ number: JSON.parse(window.localStorage.getItem('savedNumber')) })
     }
 
     render() {
         return (
-            <div>
-                <h1>{this.state.number}</h1>
-                <button
+            <Paper zDepth={2} >
+                <Card>
+                    <CardText
+                        color="red"
+                        style={style.cardText}
+                    >{this.state.number}
+                    </CardText>
+                </Card>
+                <Divider />
+                <RaisedButton
+                    label="Plus 1"
+                    primary={true}
+                    fullWidth={true}
                     onClick={this.incHandler}
-                >
-                    Plus 1
-                </button>
-                <button
+                    style={style.button}
+                />
+
+                <RaisedButton
+                    label="Minus 1"
+                    primary={true}
+                    fullWidth={true}
                     onClick={this.decHandler}
-                >
-                    Minus 1
-                </button>
-                <button
+                    style={style.button}
+                />
+
+                <RaisedButton
+                    label="Plus 5"
+                    primary={true}
+                    fullWidth={true}
                     onClick={this.incByFiveHandler}
-                >
-                    Plus 5
-                </button>
-                <button
+                    style={style.button}
+                />
+
+                <RaisedButton
+                    label="Minus 5"
+                    primary={true}
+                    fullWidth={true}
                     onClick={this.decByFiveHandler}
-                >
-                    Minus 5
-                </button>
-                <button
+                    style={style.button}
+                />
+
+                <RaisedButton
+                    label="Reset"
+                    primary={true}
+                    fullWidth={true}
                     onClick={this.resetHandler}
-                >
-                    Reset
-                </button>
-                <button
+                    style={style.button}
+                />
+
+                <RaisedButton
+                    label="Save Value"
+                    primary={true}
+                    fullWidth={true}
                     onClick={this.saveHandler}
-                >
-                    Save Value
-                </button>
-                <button
+                    style={style.button}
+                />
+
+                <RaisedButton
+                    label="Load Value"
+                    primary={true}
+                    fullWidth={true}
                     onClick={this.loadHandler}
-                >
-                    Load Value
-                </button>
-            </div>
+                    style={style.button}
+                />
+            </Paper>
         )
     }
 }
-
 export default Counter
