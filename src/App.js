@@ -4,7 +4,9 @@ import Counter from './Counter'
 class App extends Component {
   render() {
     return (
-      <Counter/>
+      <Counter
+      startValue={0}
+      />
     )
   }
 }
